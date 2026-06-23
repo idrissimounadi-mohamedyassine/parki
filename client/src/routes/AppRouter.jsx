@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import useAuthStore from '../store/authStore';
 import Skeleton from '../components/Skeleton';
 
@@ -25,7 +26,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main>
+      <main className="flex-grow">
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -39,6 +40,7 @@ const AppRouter = () => {
           </Routes>
         </Suspense>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 };

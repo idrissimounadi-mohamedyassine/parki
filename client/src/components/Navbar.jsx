@@ -35,18 +35,24 @@ const Navbar = () => {
     ]
   };
 
-  const currentLinks = user ? navLinks[user.role] : [{ name: 'Explorer', path: '/search' }];
+  const currentLinks = user ? navLinks[user.role] : [
+    { name: 'Explorer', path: '/search' },
+    { name: 'Comment ça marche', path: '/#how-it-works' },
+  ];
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-[1001] transition-all duration-300 border-b ${
-      isScrolled ? 'bg-white/80 backdrop-blur-lg border-border shadow-sm py-3' : 'bg-white border-transparent py-5'
+      isScrolled ? 'bg-white/90 backdrop-blur-md border-border shadow-md py-3' : 'bg-white border-transparent py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="text-2xl font-[900] tracking-[-0.04em] text-text font-display">
-            Park<span className="text-primary">i</span>
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-2 group">
+            <span className="text-2xl font-[900] tracking-[-0.04em] text-text font-display">
+              Park<span className="text-primary">i</span>
+            </span>
+          </Link>
+          <span className="bg-[#f0f0ff] text-primary text-[10px] font-bold px-1.5 py-0.5 rounded-md">Beta</span>
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
@@ -68,10 +74,10 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <Link to="/login" className="px-4 py-2 font-semibold text-[#374151] border border-border rounded-[10px] text-[14px] hover:bg-surface transition-all">
+                <Link to="/login" className="border border-border text-text rounded-[10px] px-4 py-1.5 text-sm font-semibold hover:bg-surface transition-all">
                   Connexion
                 </Link>
-                <Link to="/register" className="bg-primary text-white font-semibold px-5 py-2 rounded-[10px] text-[14px] hover:bg-primary-hover transition-all shadow-sm active:scale-95">
+                <Link to="/register" className="bg-primary text-white rounded-[10px] px-4 py-1.5 text-sm font-semibold shadow-sm hover:bg-primary-hover transition-all active:scale-95">
                   S'inscrire
                 </Link>
               </>
@@ -104,7 +110,7 @@ const Navbar = () => {
                 <button onClick={handleLogout} className="w-full text-left font-semibold text-red-500 py-2">Déconnexion</button>
               ) : (
                 <>
-                  <Link to="/login" className="w-full text-center py-3 font-semibold text-text bg-surface rounded-[10px]" onClick={() => setIsOpen(false)}>Connexion</Link>
+                  <Link to="/login" className="w-full text-center py-3 font-semibold text-text border border-border rounded-[10px]" onClick={() => setIsOpen(false)}>Connexion</Link>
                   <Link to="/register" className="w-full text-center py-3 font-semibold text-white bg-primary rounded-[10px]" onClick={() => setIsOpen(false)}>S'inscrire</Link>
                 </>
               )}
