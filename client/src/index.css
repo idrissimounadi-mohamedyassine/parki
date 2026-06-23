@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #635BFF;
+  --color-primary-hover: #5147F0;
+  --color-accent: #EC4899;
+  --color-bg: #FFFFFF;
+  --color-surface: #F9FAFB;
+  --color-text: #0A0014;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-hover: 0 4px 20px rgba(99,91,255,.15);
+
+  --radius-card: 16px;
+  --radius-btn: 10px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-inter text-text antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+    letter-spacing: -0.04em;
+  }
+}
+
+@layer components {
+  .blob {
+    @apply absolute pointer-events-none rounded-full blur-[80px];
+  }
+  .blob-violet {
+    background: radial-gradient(circle, rgba(99,91,255,.18), transparent 70%);
+  }
+  .blob-rose {
+    background: radial-gradient(circle, rgba(236,72,153,.14), transparent 70%);
+  }
+  .blob-indigo {
+    background: radial-gradient(circle, rgba(139,92,246,.12), transparent 70%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#635BFF] to-[#EC4899];
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+.leaflet-container { font-family: inherit !important; }
+.leaflet-popup-content-wrapper { border-radius: 12px !important; padding: 0 !important; overflow: hidden; }
+.leaflet-popup-content { margin: 0 !important; width: auto !important; }
